@@ -1,0 +1,44 @@
+{
+  "name": "move-elevator/sentry-log-pusher",
+  "description": "Parse PHP5 FatalExceptions from the error log and push it to sentry.",
+  "keywords": [
+    "FatalException",
+    "PHP",
+    "Sentry",
+    "ErrorLog",
+    "parse"
+  ],
+  "homepage": "https://github.com/move-elevator/sentry-log-pusher",
+  "authors": [
+    {
+      "name": "move:elevator - Team BS",
+      "email": "entwicklung@move-elevator.de"
+    }
+  ],
+  "support": {
+    "email": "entwicklung@move-elevator.de",
+    "source": "https://github.com/move-elevator/sentry-log-pusher",
+    "issues": "https://github.com/move-elevator/sentry-log-pusher/issues"
+  },
+  "license": "MIT",
+  "require": {
+    "php": ">=5.5",
+    "sentry/sentry": "^0.21.2",
+    "tm/error-log-parser": "^1.1",
+    "symfony/console": "^3.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "MoveElevator\\Sentry\\LogPusher\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "MoveElevator\\Sentry\\LogPusher\\": "src/",
+      "MoveElevator\\Sentry\\LogPusher\\Tests\\": "tests/"
+    }
+  }
+}
