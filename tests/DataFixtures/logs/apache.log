@@ -1,0 +1,2 @@
+[Tue Jun 21 08:30:35 2016] [error] [client 123.23.44.55] File does not exist: /var/www/mys-project/robots.txt
+[Tue Jun 21 09:01:50 2016] [warn] [client 8.9.6.3] mod_fcgid: stderr: PHP Warning:  min(): Array must contain at least one element in /var/www/my-project/index.php on line 165
