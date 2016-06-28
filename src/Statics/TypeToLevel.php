@@ -16,7 +16,8 @@ class TypeToLevel implements TypeToLevelInterface
     {
         $typeToLevel = [
             'error' => \Raven_Client::ERROR,
-            'warn' => \Raven_Client::WARNING
+            'warn' => \Raven_Client::WARNING,
+            'debug' => \Raven_Client::DEBUG,
         ];
 
         if (true === isset($typeToLevel[$type])) {

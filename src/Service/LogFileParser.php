@@ -16,7 +16,7 @@ class LogFileParser
     private $parser;
 
     /**
-     * @var array
+     * @var \stdClass[]
      */
     private $entries = [];
 
@@ -47,6 +47,10 @@ class LogFileParser
         foreach ($this->getLines($file) as $line) {
             $entry = $this->parser->parse($line);
 
+            if (false === property_exists($entry, 'type') || false === property_exists($entry, 'message')) {
+                continue;
+            }
+
             if (false === empty($types) && false === in_array($entry->type, $types)) {
                 continue;
             }
@@ -57,7 +61,9 @@ class LogFileParser
     }
 
     /**
-     * @return array
+     * one entry has at least the property type and message
+     *
+     * @return \stdClass[]
      */
     public function getEntries()
     {

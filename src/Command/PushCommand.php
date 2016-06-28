@@ -11,6 +11,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
+use Symfony\Component\Console\Style\SymfonyStyle;
 use TM\ErrorLogParser\Parser;
 
 /**
@@ -25,11 +26,11 @@ class PushCommand extends Command
     {
         $this
             ->setName('push')
-            ->setDescription('parse the error log and push it to sentry')
+            ->setDescription('parse the logfile and push it to sentry')
             ->addArgument('logfile', InputArgument::REQUIRED, 'path to the error log')
-            ->addOption('logfile-type', 'lft', InputOption::VALUE_OPTIONAL, 'type of error log: apache or nginx', Parser::TYPE_APACHE)
-            ->addOption('log-type', 'lt', InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY, 'which log types should be pushed: error, warn, ...')
-            ->addOption('sentry-dsn', 'dsn', InputOption::VALUE_REQUIRED, 'sentry dsn')
+            ->addOption('logfile-type', 's', InputOption::VALUE_OPTIONAL, 'type of error log: apache or nginx', Parser::TYPE_APACHE)
+            ->addOption('log-type', 't', InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY, 'which log types should be pushed: error, warn, ...')
+            ->addOption('sentry-dsn', 'd', InputOption::VALUE_REQUIRED, 'sentry dsn')
         ;
     }
 
@@ -41,6 +42,9 @@ class PushCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $io = new SymfonyStyle($input, $output);
+        $io->title('Parse the logfile and push it to sentry');
+
         $logFileParser = new LogFileParser(new Parser($input->getOption('logfile-type')));
         $logFileParser->parse($input->getArgument('logfile'), $input->getOption('log-type'));
 
@@ -56,6 +60,8 @@ class PushCommand extends Command
         }
 
         $progress->finish();
-        $output->writeln('<info>Done.</info>');
+
+        $io->newLine(2);
+        $io->success('Done.');
     }
 }

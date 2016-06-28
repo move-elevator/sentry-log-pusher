@@ -302,16 +302,16 @@
         },
         {
             "name": "tm/error-log-parser",
-            "version": "1.1",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tommy-muehle/error-log-parser.git",
-                "reference": "8f1221a63a1de59f5b638e43f832c84ca882a41f"
+                "reference": "3ba0d95318ea226d57b49c9771c3a0b4cb64d08c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tommy-muehle/error-log-parser/zipball/8f1221a63a1de59f5b638e43f832c84ca882a41f",
-                "reference": "8f1221a63a1de59f5b638e43f832c84ca882a41f",
+                "url": "https://api.github.com/repos/tommy-muehle/error-log-parser/zipball/3ba0d95318ea226d57b49c9771c3a0b4cb64d08c",
+                "reference": "3ba0d95318ea226d57b49c9771c3a0b4cb64d08c",
                 "shasum": ""
             },
             "require": {
@@ -347,7 +347,7 @@
                 "nginx",
                 "parser"
             ],
-            "time": "2016-01-15 10:18:06"
+            "time": "2016-06-24 10:12:00"
         }
     ],
     "packages-dev": [
