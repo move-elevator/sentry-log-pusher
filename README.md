@@ -6,7 +6,12 @@ The `sentry-log-pusher` parse the apache or nginx log and push the entries to se
 
 ## Installation
 
-Download the `build/pusher.phar` file and parse your log with the following parameters:
+Download the `pusher.phar` file.
+ 
+     $ curl -Os https://github.com/move-elevator/sentry-log-pusher/releases/download/1.0.0/pusher.phar
+     $ chmod +x pusher.phar
+ 
+ Parse your log with the following parameters:
 
     pusher.phar push path/to/log/file/error.log --sentry-dsn=https://user:password@sentry.domain.com
     
