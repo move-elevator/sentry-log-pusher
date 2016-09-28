@@ -17,5 +17,5 @@ Download the `pusher.phar` file.
     
 Optional parameters are:
 
-* --logfile-type: apache or nginx, default apache
+* --logfile-type: apache, nginx or formless, default apache
 * --log-type: warn, error, ..., default all entries
