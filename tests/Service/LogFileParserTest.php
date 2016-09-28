@@ -10,6 +10,14 @@ use TM\ErrorLogParser\Parser;
  */
 class LogFileParserTest extends \PHPUnit_Framework_TestCase
 {
+    public function testHandleAllFormlessLogTypes()
+    {
+        $logFileParser = new LogFileParser(new Parser(Parser::TYPE_FORMLESS));
+        $logFileParser->parse(__DIR__ . '/../DataFixtures/logs/apache.log');
+
+        $this->assertEquals(2, $logFileParser->count());
+    }
+
     public function testHandleAllLogTypes()
     {
         $logFileParser = new LogFileParser(new Parser(Parser::TYPE_APACHE));
