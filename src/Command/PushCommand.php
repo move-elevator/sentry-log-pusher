@@ -54,9 +54,15 @@ class PushCommand extends Command
         $progress = new ProgressBar($output, $logFileParser->count());
         $progress->start();
 
-        foreach ($logFileParser->getEntries() as $entry) {
-            $sentryPusher->push($entry, $typeToLevel);
-            $progress->advance();
+        if (Parser::TYPE_FORMLESS === $input->getOption('logfile-type')) {
+            $sentryPusher->pushMultiline($logFileParser->getEntries(), $typeToLevel);
+        }
+
+        if (Parser::TYPE_FORMLESS !== $input->getOption('logfile-type')) {
+            foreach ($logFileParser->getEntries() as $entry) {
+                $sentryPusher->push($entry, $typeToLevel);
+                $progress->advance();
+            }
         }
 
         $progress->finish();
