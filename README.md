@@ -8,7 +8,7 @@ The `sentry-log-pusher` parse the apache or nginx log and push the entries to se
 
 Download the `pusher.phar` file.
  
-     $ curl -OsL https://github.com/move-elevator/sentry-log-pusher/releases/download/1.0.0/pusher.phar
+     $ curl -OsL https://github.com/move-elevator/sentry-log-pusher/releases/download/stable/pusher.phar
      $ chmod +x pusher.phar
  
  Parse your log with the following parameters:
