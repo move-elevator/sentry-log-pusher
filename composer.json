@@ -24,7 +24,7 @@
   "require": {
     "php": ">=5.5",
     "sentry/sentry": "^0.21.2",
-    "tm/error-log-parser": "^1.1",
+    "tm/error-log-parser": "^1.2",
     "symfony/console": "^3.1"
   },
   "require-dev": {
